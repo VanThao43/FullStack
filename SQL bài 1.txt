@@ -1,0 +1,19 @@
+13/12/20022
+
+
+1) Tạo CSDL 
+- Tên: jp210302_data
+	=> Ctrl+N: jp210302_data
+	
+- Các bảng: (Ctrl+T)
+	+ Người sử dụng (User): tbluser
+		-> user_id - Integer
+		-> user_name - varchar
+		-> ...
+	+ Chuyên mục (Section): tblsection
+	+ ...
+
+2) Tạo tài khoản làm việc
+- Tên tài khoản: jp210302_ten
+- Cấp quyền làm việc: SELECT, INSERT, UPDATE, DELETE
+

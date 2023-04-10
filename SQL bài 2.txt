@@ -1,0 +1,122 @@
+I) SELECT
+1)
+-- Lấy ra tối đa 10 bài viết mới nhất
+SELECT article_id, article_title FROM tblarticle
+ORDER BY article_id DESC
+LIMIT 10;
+
+-- Lấy tối đa 15 sản phẩm mới nhất
+SELECT product_id, product_name FROM tblproduct
+ORDER BY product_id DESC
+LIMIT 15;
+
+
+
+
+
+2)
+-- Liệt kê tối đa 15 bài viết được xem nhiều nhất
+SELECT article_id, article_title, article_visited FROM tblarticle
+ORDER BY article_visited DESC
+LIMIT 15;
+
+-- Liệt kê 10 sản phẩm được xem nhiều nhất
+SELECT product_id, product_name , product_visited FROM tblproduct
+ORDER BY product_visited DESC
+LIMIT 10;
+
+
+
+
+
+3)
+-- Đưa ra tên của chuyên mục (section) có bài viết xem nhiều nhất
+SELECT section_name, article_visited FROM tblarticle
+LEFT JOIN tblsection ON article_section_id=section_id
+ORDER BY article_visited DESC
+LIMIT 1;
+
+
+-- Cách 2
+SELECT section_name, article_visited FROM tblarticle
+LEFT JOIN tblsection ON article_section_id=section_id
+WHERE article_visited = (
+  SELECT MAX(article_visited)FROM tblarticle
+);
+
+
+
+4)
+-- Đưa ra tên của thể loại có bài viết được xem nhiều nhất
+SELECT category_name, article_visited FROM tblarticle a
+LEFT JOIN tblcategory c ON a.article_category_id=c.category_id
+WHERE a.article_visited = (
+  SELECT MAX(a1.article_visited) FROM tblarticle a1
+);
+
+
+
+
+
+5)
+-- Thống kê số lượng các bài viết trong mỗi chuyên mục
+SELECT section_name, COUNT(article_id) AS total FROM tblarticle
+LEFT JOIN tblsection ON article_section_id = section_id
+GROUP BY article_section_id
+ORDER BY total DESC;
+
+
+-- Đưa ra tên của chuyên mục có số lượng thể loại nhiều nhất
+SELECT * FROM(
+  SELECT section_name, COUNT(category_id) AS total FROM tblcategory
+  LEFT JOIN tblsection ON category_section_id = section_id
+  GROUP BY category_section_id
+
+) AS tmp
+
+WHERE total = (
+  SELECT MAX(total2) FROM (
+    SELECT section_name, COUNT(category_id) AS total2 FROM tblcategory
+    LEFT JOIN tblsection ON category_section_id = section_id
+    GROUP BY category_section_id
+
+  ) AS tmp2
+)
+
+
+
+
+
+
+6)
+-- Liệt kê tối đa 15 bài viết mới hơn (hoặc cũ hơn) so với bài viết hiện tại
+SELECT * FROM(
+  SELECT article_id, article_title FROM tblarticle
+  WHERE (article_id < 68) AND (article_section_id =
+    (
+      SELECT article_section_id FROM tblarticle WHERE article_id = 68
+    )
+  )
+  ORDER BY article_id ASC            -- (DESC: cũ hơn)             -- (ASC : mới hơn)
+  LIMIT 15
+)AS tmp
+ORDER BY article_id DESC;
+
+
+
+
+
+II) INSERT
+1)
+-- Thêm 2 bản ghi vào bảng user
+INSERT INTO tbluser(user_name, user_pass, user_email, user_fullname)
+VALUES ('langthang', '1234567', 'langthang@gmail.com', 'Van Thao'),
+       ('admin123', '43333', 'abc@gmail.com', 'Nguyen Van A');
+
+
+-- Xoá bản ghi
+DELETE FROM tbluser WHERE user_id >= 30 AND user_id<=39
+
+-- Đổi thông tin của user = 32
+UPDATE tbluser SET user_pass = md5('123456'), user_fullname = md5('Nguyen Van Thao')
+WHERE user_id = 40;
