@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css" type="text/css">
+    <link rel="stylesheet" href="login.css" type="text/css">
+    <link rel="stylesheet" href="font/fontawesome-free-6.2.1-web/fontawesome-free-6.2.1-web/css/all.css"
+        type="text/css">
+
+    <script language="javascript" src="js/login2.js" type="text/javascript"></script>
+    <title>LogIn2</title>
+</head>
+
+<body>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <div class="loginview bg-light">
+                    <!-- Form -->
+                    <form name="" action="" method="" >
+                        <!-- Đăng nhập -->
+                        <div class="row mb-3 mt-5 mtitle">
+                            <div class="col-lg-12">
+                                <div class="text-center bg-primary text-light pt-3 pb-3">
+                                    <i class="fa-solid fa-user"></i>&nbsp;
+                                    Đăng nhập
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Tên đăng nhập -->
+                        <div class="row mb-3">
+                            <label for="uName" class="col-lg-3 offset-lg-1 col-form-label">Tên đăng nhập</label>
+                            <div class="col-lg-7">
+                                <input type="text" class="form-control" id="uName" onkeyup="checkValidLogin()">
+                                <div id="errName"></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Mật khẩu -->
+                        <div class="row mb-3">
+                            <label for="uPass" class="col-lg-3 offset-lg-1 col-form-label">Mật khẩu</label>
+                            <div class="col-lg-7 pass-show">
+                                <input type="password" class="form-control" id="uPass" onkeyup="checkValidLogin()">
+                                <i class="fa-sharp fa-solid fa-eye-slash pass-eye" onclick="showPassword()"></i>
+                                <div id="errPass"></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Lưu thông tin -->
+                        <div class="row mb-3">
+                            <div class="col-lg-7 offset-lg-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="chkSave" onclick="checkValidLogin()">
+                                    <label class="form-check-label" for="chkSave">
+                                        Lưu thông tin đăng nhập?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Đăng kí, quên mật khẩu, trợ giúp -->
+                        <div class="row mb-3">
+                            <div class="col-lg-12 text-center">
+                                <!-- Đăng kí -->
+                                <a href="#">
+                                    <i class="fa-solid fa-user-plus"></i>&nbsp;
+                                    Đăng kí
+                                </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <!-- Quên mật khẩu -->
+                                <a href="#">
+                                    <i class="fa-solid fa-unlock-keyhole"></i>&nbsp;
+                                    Quên mật khẩu
+                                </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <!-- Trợ giúp -->
+                                <a href="#">
+                                    <i class="fa-sharp fa-solid fa-circle-question"></i>&nbsp;
+                                    Trợ giúp
+                                </a>
+
+                            </div>
+                        </div>
+
+
+                        <!-- button -->
+                        <div class="row mb-3">
+                            <div class="col-lg-12 text-center">
+                                <!-- Đăng nhập -->
+                                <button type="button" class="btn btn-primary" disabled id="btnReg">
+                                    <i class="fa-sharp fa-solid fa-right-to-bracket" id="change-icon"></i>
+                                    Đăng nhập
+                                </button>
+                                <!-- Thoát -->
+                                <button type="button" class="btn btn-secondary" onclick="window.close()">
+                                    <i class="fa-solid fa-right-from-bracket"></i>
+                                    thoát
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- Ngôn ngữ -->
+                        <div class="row mb-3">
+                            <div class="col-lg-11 text-end pb-2">
+                                <a href="#">
+                                    <i class="fa-sharp fa-solid fa-globe"></i>&nbsp;
+                                    English
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

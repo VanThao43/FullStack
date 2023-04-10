@@ -1,0 +1,94 @@
+
+.loginview{
+    height: auto;
+    box-shadow: 5px 5px 30px #0dcaf0;
+}
+
+.loginview a{
+    text-decoration: none;
+}
+
+.loginview .pass-show{
+    position: relative;
+}
+
+
+.loginview .pass-show .pass-eye{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	cursor: pointer;
+}
+
+
+.loginview .pass-show .pass-eye:hover{
+	opacity: 0.5;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	.loginview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.loginview .mtitle{
+		margin-top: 30px !important;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.loginview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.loginview .mtitle{
+		margin-top: 30px !important;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* Medium devices (tablets, 768px and up */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.loginview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.loginview .mtitle{
+		margin-top: 30px !important;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	.loginview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.loginview .mtitle{
+		margin-top: 30px !important;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+/* XX-large devices (larger desktops, 1400px and up */
+@media (min-width: 1400px) {
+	
+}
