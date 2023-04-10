@@ -1,0 +1,125 @@
+<!-- doctype html -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Provider</title>
+	<link href="css/all.min.css" rel="stylesheet">
+	<link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/provider.css" rel="stylesheet">
+	<script language="javascript" src="js/provider.js" ></script>
+
+</head>
+<body>
+    <div class="container-lg">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="providerview bg-light ">
+                    <form>
+                        <!-- Cập nhật nhà cung cấp -->
+                        <div class="row mb-3 mt-5 mtitle">
+                            <div class="col-lg-12"><!--text-light : màu sáng-->
+                                <div class="text-center bg-dark text-light pt-2 pb-2">
+                                    <i class="fa-solid fa-user-group"></i> Cập nhập nhà cung cấp
+                                </div>
+                            </div>
+                        </div>
+                    
+
+                        <!-- Tên nhà cung cấp -->
+                        <div class="row mb-3">
+                            <label for="PName" class="col-lg-2 offset-lg-1 col-form-label">Tên nhà cung cấp</label>
+                            <div class="col-lg-4">
+                                <input type="text" class="form-control" id="PName" onKeyup="checkValidProvider()">
+                            </div>
+							<div class="col-lg-4" id="errName"></div>
+                        </div>
+                        
+
+                        <!-- Hình ảnh, logo -->
+                        <div class="row mb-3">
+                            <label for="PImage" class="col-lg-2 offset-lg-1 col-form-label">Hình ảnh (Logo/Avatar)</label>
+                            <div class="col-lg-8">
+                                <input type="file" class="form-control" id="PImage">
+                            </div>
+                        </div>
+                        
+
+                        <!-- Thông tin chi tiết -->
+                        <div class="row mb-3">
+                            <label for="PDetail" class="col-lg-2 offset-lg-1 col-form-label d-flex align-items-center">Thông tin chi tiết</label>
+                            <div class="col-lg-8">
+                                <!--Cách hồi trước<textarea type="file" class="form-control" id="PDetail"></textarea><!--textarea: là 1 loại khung gõ văn bản-->
+                                <div id="PDetil"></div>
+                            </div>
+                        </div>
+
+
+                        <!-- Chấp nhận quy định -->
+                        <div class="row mb-3">
+                            <div class="col-lg-6 offset-lg-3">
+								<input class="form-check-input" type="checkbox" id="action" onClick="checkValidProvider()">
+								<label class="form-check-label" for="gridCheck1">
+									Bạn có chấp nhận những quy định?
+								</label>
+								<div id="errCheck"></div>
+							</div>
+							
+                        </div>
+                
+                        
+                        <!-- Quy định , trợ giúp -->
+                        <div class="row mb-3">
+                            <div class="col-lg-12 text-center links">
+                                <a href="#">Quy định Nhà cung cấp!</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                <a href="#">Trợ giúp?</a>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Đăng ký -->
+                        <div class="row mb-3">
+                            <div class="col-lg-12 text-center">
+                                <!-- Đăng kí -->
+								<button type="button" name="errName" class="btn btn-primary" id="btnReg" disabled>
+                                    <i class="fa-solid fa-right-to-bracket"></i> Đăng ký
+                                </button>
+                                <!-- Thoát -->
+								<button type="button" class="btn btn-primary">
+                                    <i class="fa-solid fa-right-from-bracket" onclick="window.close()"></i> Thoát
+                                </button>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Ngôn ngữ -->
+                        <div class="row mb-3">
+                            <div class="col-md-11 text-end pb-2"><!--text-end: bên phải; text-start: bên trái; text-center: giữa-->
+                                <a href="#"><i class="fa-solid fa-language"></i> English</a>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+	
+ 
+    <script src="js/ckeditor.js"></script>
+    
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#PDetil' ), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( err => {
+                console.error( err.stack );
+            } );
+    </script>
+</body>
+</html>

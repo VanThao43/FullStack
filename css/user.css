@@ -1,0 +1,71 @@
+/*Các xử lý mã định riêng cho user.html*/
+
+.userview{
+	height: auto;
+	width: auto;
+	box-shadow: 5px 5px 30px #0dcaf0;
+}
+
+.userview iframe{
+	width: 1100px; 
+	height: 450px;
+	border-radius: 5px;
+	margin: 0px 10px 5px 10px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	.userview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.userview .mtitle{
+		margin-top:30px !important;/*important có nghĩa là quan trọng phải theo thằng đó*/
+		
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.userview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.userview .mtitle{
+		margin-top:30px !important;
+		
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+	.userview .row{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.userview .mtitle{
+		margin-top:30px !important;
+		
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	
+}
+

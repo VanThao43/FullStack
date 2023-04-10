@@ -1,0 +1,270 @@
+<!-- doctype html -->
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>User</title>
+
+   <link href="css/all.min.css" rel="stylesheet">
+
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   <link href="css/user.css" rel="stylesheet">
+
+   <script language="javascript" src="js/user.js"></script>
+</head>
+
+<body>
+   <div class="container-lg">
+      <div class="row">
+         <div class="col-md-16">
+            <div class="userview bg-light ">
+               <!-- form -->
+               <form id="frmUser">
+
+                  <!-- Account Information -->
+                  <div class="row mb-3 mt-5 mtitle">
+                     <div class="col-lg-12">
+                        <!--text-light : màu sáng, trắng-->
+                        <div class="text-center bg-primary bg-gadient text-light pt-2 pb-2">
+                           <!--bg-gadient:đổ bóng cho tiêu đề-->
+                           <i class="fa-solid fa-user-group"></i>&nbsp;&nbsp;ACCOUNT INFORMATION
+                        </div>
+                     </div>
+                  </div>
+
+
+                  <!-- UserName -->
+                  <div class="row mb-3">
+                     <label for="UName" class="col-lg-2 col-form-label text-end">UserName</label>
+                     <!-- text-end:căn lề phải-->
+                     <div class="col-lg-3">
+                        <input type="text" class="form-control" id="UName" onkeyup="checkName()">
+                     </div>
+                     <div class="col-lg-6">
+                        <div id="errName"></div>
+                     </div>
+                  </div>
+
+
+
+                  <!-- Password -->
+                  <div class="row mb-3">
+                     <label for="UPass" class="col-lg-2 col-form-label text-end">Password</label>
+                     <div class="col-lg-3">
+                        <input type="password" class="form-control" id="UPass" onKeyup="checkPass()">
+                        <div id="errPass"></div>
+                     </div>
+                     <!-- Confirm password -->
+                     <label for="UConfirm" class="col-lg-2 col-form-label text-end">Confirm</label>
+                     <div class="col-lg-3">
+                        <input type="password" class="form-control" id="UConfirm" onkeyup="checkPass()" disabled>
+                        <div id="errPass2"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Email -->
+                  <div class="row mb-3">
+                     <label for="UEmail" class="col-lg-2 col-form-label text-end">Email</label>
+                     <div class="col-lg-3">
+                        <input type="text" class="form-control" id="UEmail" onkeyup="checkEmail()">
+                     </div>
+                     <div class="col-lg-6">
+                        <div id="errEmail"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Permission -->
+                  <div class="row mb-3">
+                     <label for="UPermit" class="col-lg-2 col-form-label text-end">Permission</label>
+                     <div class="col-lg-3">
+                        <script language="javascript">generatePermit()</script>
+                     </div>
+                     <div class="col-lg-6">
+                        <div id="errPermit"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Roles -->
+                  <div class="row mb-3">
+                     <label for="URoles"
+                        class="col-lg-2 col-form-label d-flex align-items-center justify-content-end">Roles</label>
+                     <div class="col-lg-9">
+                        <script language="javascript">
+                           generateRoles();
+                        </script>
+                     </div>
+                  </div>
+
+
+                  <!-- Detail Information -->
+                  <div class="row mb-3 mt-5 mtitle">
+                     <div class="col-lg-12">
+                        <div class="text-center bg-primary bg-gadient text-light pt-2 pb-2">
+                           <!--bg-gadient:đổ bóng cho tiêu đề-->
+                           <i class="fa-solid fa-user-group"></i> DETAIL INFORMATION
+                        </div>
+                     </div>
+                  </div>
+
+
+                  <!-- FullName -->
+                  <div class="row mb-3">
+                     <label for="UFullName" class="col-lg-2 col-form-label text-end">FullName</label>
+                     <div class="col-lg-3">
+                        <input type="text" class="form-control" id="UFullName" onkeyup="checkFullName()">
+                        <div id="errFullName"></div>
+                     </div>
+                     <!-- LastName -->
+                     <label for="ULastName" class="col-lg-2 col-form-label text-end">LastName</label>
+                     <div class="col-lg-3">
+                        <input type="text" class="form-control" id="ULastName">
+                        <div id="errFullName2"></div>
+                     </div>
+
+                  </div>
+
+
+                  <!-- Alias -->
+                  <div class="row mb-3">
+                     <label for="UAlias" class="col-lg-2 col-form-label text-end">Alias</label>
+                     <div class="col-lg-3">
+                        <input type="text" class="form-control" id="UAlias">
+                     </div>
+                  </div>
+                  <div name="errAlias"></div>
+
+
+                  <!-- Gender -->
+                  <div class="row mb-3">
+                     <label for="UGender" class="col-lg-2 col-form-label text-end">Gender</label>
+                     <div class="col-lg-3">
+                        <select class="form-select form-select-md" id="UGender" aria-label=".form-select-sm example">
+                           <option value="0" selected>...</option>
+                           <option value="1">One</option>
+                           <option value="2">Two</option>
+                           <option value="3">Three</option>
+                        </select>
+                        <div name="errGender"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Adress -->
+                  <div class="row mb-3">
+                     <label for="UAddress" class="col-lg-2 col-form-label text-end">Address</label>
+                     <!-- Tỉnh -->
+                     <div class="col-lg-2">
+                        <select class="form-select form-select-md" id="UAddress1" aria-label=".form-select-sm example">
+                           <option value="0" selected>...(Tỉnh/Thành phố)...</option>
+                           <option value="1">One</option>
+                           <option value="2">Two</option>
+                           <option value="3">Three</option>
+                        </select>
+                        <div name="errAddress1"></div>
+                     </div>
+                     <!-- Quận, huyện -->
+                     <div class="col-lg-2">
+                        <select class="form-select form-select-md" id="UAddress2" aria-label=".form-select-sm example">
+                           <option selected>...(Quận/Huyện)...</option>
+                           <option value="1">One</option>
+                           <option value="2">Two</option>
+                           <option value="3">Three</option>
+                        </select>
+                        <div name="errAddress2"></div>
+                     </div>
+                     <!-- Phường, xã, ... -->
+                     <div class="col-lg-3">
+                        <input type="text" class="form-control" id="UAddress3">
+                        <div name="errAddress3"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Home -->
+                  <div class="row mb-3">
+                     <label for="UHome" class="col-lg-2 col-form-label text-end">Home</label>
+                     <!-- Số nhà -->
+                     <div class="col-lg-2">
+                        <input type="text" class="form-control" id="UHome" placeholder="Số cố định">
+                        <!--placeholder hiển thị trên thanh-->
+                        <div name="errNumber"></div>
+                     </div>
+                     <!-- Office -->
+                     <label for="UOffice" class="col-lg-1 col-form-label text-end">Office</label>
+                     <div class="col-lg-2">
+                        <input type="text" class="form-control" id="UOffice">
+                        <div name="errNumber"></div>
+                     </div>
+                     <!-- Mobile -->
+                     <label for="UMobile" class="col-lg-1 col-form-label text-end">Mobile</label>
+                     <div class="col-lg-2">
+                        <input type="text" class="form-control" id="UMobile">
+                        <div name="errNumber"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Department information -->
+                  <div class="row mb-3 mt-5 mtitle">
+                     <div class="col-lg-12">
+                        <div class="text-center bg-primary bg-gadient text-light pt-2 pb-2">
+                           <!--bg-gadient:đổ bóng cho tiêu đề-->
+                           <i class="fa-solid fa-user-group"></i> DEPARTMENT INFORMATION
+                        </div>
+                     </div>
+                  </div>
+
+
+                  <!-- Name -->
+                  <div class="row mb-3">
+                     <label for="UName" class="col-lg-1 offset-lg-1 col-form-label">Name</label>
+                     <div class="col-lg-8">
+                        <input type="text" class="form-control" id="UName2">
+                        <div name="errName"></div>
+                     </div>
+                  </div>
+
+
+                  <!-- Map -->
+                  <div id="map" class="">
+                     <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.4736630784096!2d105.73291811411215!3d21.053735992303036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31345457e292d5bf%3A0x20ac91c94d74439a!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBIw6AgTuG7mWk!5e0!3m2!1svi!2s!4v1650597367012!5m2!1svi!2s"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  </div>
+
+                  <!-- Quy định , trợ giúp -->
+                  <div class="row my-3 pt-5">
+                     <div class="col-lg-12 text-center links">
+                        <a href="#">Quy định Nhà cung cấp!</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#">Trợ giúp?</a>
+                     </div>
+                  </div>
+
+
+                  <!-- Đăng ký -->
+                  <div class="row my-3 pb-5">
+                     <div class="col-lg-12 text-center">
+                        <!-- Đăng kí -->
+                        <button type="button" name="errName" class="btn btn-primary" id="btnReg"
+                           onclick="checkValidUser()">
+                           <i class="fa-solid fa-right-to-bracket"></i> Đăng nhập
+                        </button>
+                        <!-- Thoát -->
+                        <button type="button" class="btn btn-primary">
+                           <i class="fa-solid fa-right-from-bracket" onclick="window.close()"></i> Thoát
+                        </button>
+                     </div>
+                  </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>
