@@ -1,0 +1,15 @@
+﻿/*Các xử lý kịch bản cho index.html*/
+
+//Khai báo biến: 2 cách
+
+var def = "--- từ khóa ---";
+let emp = '';
+
+function setFirstTime() { //làm việc thông qua form rồi điền đối tượng
+    // window.document.forms[0].txtKeyword.value = def;
+    window.document.frmSearch.txtKeyword.value = def; //có thể bỏ window 
+}
+
+function setFirstTimeV2(fn) {
+
+}
