@@ -1,0 +1,79 @@
+
+@import url('basic.css');
+
+.loginview{
+    width: 450px;
+    height: auto;
+    background-color: #fafaff;
+    box-shadow: 5px 5px 30px #888;
+    border-radius: 5px;
+    margin: 0 auto;
+    border: 0;
+}
+
+.loginview table{
+    width: 100%;
+}
+
+.loginview table th,
+.loginview table td{
+    padding: 10px 5px;
+}
+
+.loginview table th{
+    background-color: #00f;
+    color: #fff;
+    text-transform: uppercase; /* Viết hoa */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+.loginview input{
+    padding: 10px 3px;
+    border: 0px;
+    box-shadow: 3px 3px 10px #888;
+    border-radius: 2px;
+}
+
+.loginview input:focus{
+    border: 0px solid red;
+}
+
+.left_column{
+    text-align: right; /* Căn lề phải văn bản */
+    font-weight: bold;
+}
+
+.loginview a{
+    text-decoration: none;
+    color: #00f;
+}
+
+.loginview a:hover{
+    font-weight: 600;
+}
+
+.loginview button{
+    cursor: pointer;
+}
+
+.link__separate{
+    padding-right: 10px;
+    border-right: 2px solid #333;
+    box-sizing: border-box;
+}
+
+.loginview .btn__submit:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.loginview .btn__submit{
+    background-color: rgb(41, 98, 253);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px;
+}
+
