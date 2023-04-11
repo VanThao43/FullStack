@@ -1,13 +1,10 @@
 package jsoft.ads.user;
 
 import java.sql.*;
-
-import org.javatuples.Pair;
-
+import org.javatuples.*;
 import jsoft.objects.*;
-
 import jsoft.ads.basic.*;
-import jsoft.library.ORDER;
+import jsoft.library.*;
 import jsoft.*;
 
 public class UserImpl extends BasicImpl implements User {
@@ -16,6 +13,12 @@ public class UserImpl extends BasicImpl implements User {
 		super(cp, "User");
 	}
 
+	
+	/**
+	 * Thêm, chỉnh sửa, xoá các đối tượng vào CSDL 
+	 * nên chỉ cần gọi đến phương thức add -> exe bên Basic
+	 * không phải sử dụng đến excuteQuery
+	 */
 	@Override
 	public boolean addUser(UserObject item) {
 		

@@ -36,20 +36,37 @@ public class BasicImpl implements Basic {
 		}
 	}
 
+	
+	/**
+	 * 
+	 * PreparedStatement được tạo ra bằng cách sử dụng 
+	 * phương thức prepareStatement() của đối tượng Connection. 
+	 * Khi sử dụng PreparedStatement, chúng ta cung cấp truy vấn SQL với các tham số đánh dấu "?"
+	 */
 	private boolean exe(PreparedStatement pre) {
 		if (pre != null) {
 
 			// Thực thi câu lệnh
 			try {
-				int results = pre.executeUpdate();
-
+				/**
+				 * excuteUpdate:	thực hiện các thay đổi trong cơ sở dữ liệu
+				 * 
+				 * return: trả về số dòng bị thay đổi trong cơ sở dữ liệu
+				 */
+				int results = pre.executeUpdate();		
+														
 				// Kiểm tra kết quả
 				if (results == 0) {
 					this.con.rollback();
 					return false;
 				}
 
-				// Xác nhận thực thi sau cùng
+				 /**
+				  * Xác nhận thực thi sau cùng
+				  * 
+				  * commit: xác nhận các thay đổi dữ liệu đã được thực hiện. Nếu không gọi phương thức "commit", 
+				  * các thay đổi dữ liệu trong giao dịch sẽ không được lưu lại và sẽ bị hủy bỏ.
+				  */
 				this.con.commit();
 				return true;
 			} catch (SQLException e) {
@@ -96,7 +113,14 @@ public class BasicImpl implements Basic {
 				pre.setInt(1, id);						// 3
 			}
 			
+			
+			/**
+			 * executeQuery(): là một phương thức của đối tượng "Statement" trong Java, 
+			 * được sử dụng để thực hiện các truy vấn SELECT, 
+			 * trả về một đối tượng "ResultSet" chứa kết quả của truy vấn. 
+			 */
 			return pre.executeQuery();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

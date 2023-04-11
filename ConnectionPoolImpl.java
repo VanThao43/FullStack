@@ -15,7 +15,7 @@ public class ConnectionPoolImpl implements ConnectionPool {
 	private String userName;
 	private String userPass;
 	
-	//Đối tượng lưu trữ kết nối
+	//Đối tượng lưu trữ kết nối tới CSDL
 	private Stack<Connection> pool;
 
 	public ConnectionPoolImpl() {
