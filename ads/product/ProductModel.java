@@ -17,6 +17,10 @@ public class ProductModel {
 		this.p = new ProductImpl(cp);
 	}
 	
+	protected void finallize() throws Throwable{
+		this.p = null;
+	}
+	
 	
 	//--------------------------------------------------------------
 	public boolean addProduct(ProductObject item) {

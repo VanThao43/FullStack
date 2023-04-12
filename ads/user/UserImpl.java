@@ -243,6 +243,9 @@ public class UserImpl extends BasicImpl implements User {
 			break;
 		case BIRTHDAY:
 			sql += "ORDER BY user_birthday "+o;
+			break;
+		case LOGIN:
+			sql += "ORDER BY user_logined "+o;
 		}
 		
 		
@@ -271,6 +274,9 @@ public class UserImpl extends BasicImpl implements User {
 			break;
 		case BIRTHDAY:
 			sql += "ORDER BY user_birthday "+o;
+			break;
+		case LOGIN:
+			sql += "ORDER BY user_logined "+o;
 		}
 		
 		

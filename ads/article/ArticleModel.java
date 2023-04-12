@@ -17,6 +17,10 @@ public class ArticleModel {
 		this.a = new ArticleImpl(cp);
 	}
 	
+	protected void finallize() throws Throwable{
+		this.a = null;
+	}
+	
 	
 	//--------------------------------------------------------
 	public boolean addArticleObject(ArticleObject item) {
@@ -51,6 +55,8 @@ public class ArticleModel {
 					item.setArticle_author_name(rs.getString("article_author_name"));
 					item.setArticle_section_id(rs.getShort("article_section_id"));
 					item.setArticle_category_id(rs.getShort("article_category_id"));
+					item.setArticle_last_modified(rs.getString("article_last_modified"));
+					item.setArticle_image(rs.getString("article_image"));
 					
 					item.setCategory_id(rs.getShort("category_id"));
 					item.setCategory_name(rs.getString("category_name"));
@@ -93,6 +99,9 @@ public class ArticleModel {
 					item.setCategory_id(rs.getShort("category_id"));
 					item.setCategory_name(rs.getString("category_name"));
 					
+					item.setSection_id(rs.getShort("section_id"));
+					item.setSection_name(rs.getString("section_name"));
+					
 					items.add(item);
 				}
 			} catch (SQLException e) {
@@ -118,8 +127,10 @@ public class ArticleModel {
 					item = new ArticleObject();
 					item.setArticle_id(rs.getInt("article_id"));
 					item.setArticle_title(rs.getString("article_title"));
-					item.setArticle_summary(rs.getString("article_summary"));
-					item.setArticle_content(rs.getString("article_content"));
+					
+//					item.setArticle_summary(rs.getString("article_summary"));
+//					item.setArticle_content(rs.getString("article_content"));
+					
 					item.setArticle_created_date(rs.getString("article_created_date"));
 					item.setArticle_visited(rs.getShort("article_visited"));
 					item.setArticle_author_name(rs.getString("article_author_name"));
@@ -128,6 +139,9 @@ public class ArticleModel {
 					
 					item.setCategory_id(rs.getShort("category_id"));
 					item.setCategory_name(rs.getString("category_name"));
+					
+					item.setSection_id(rs.getShort("section_id"));
+					item.setSection_name(rs.getString("section_name"));
 					
 					items.add(item);
 				}

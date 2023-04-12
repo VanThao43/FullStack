@@ -16,6 +16,10 @@ public class CategoryModel {
 	}
 	
 	
+	protected void finallize() throws Throwable{
+		this.c = null;
+	}
+	
 	//-------------------------------------------------------------
 	public boolean addCategoryObject(CategoryObject item) {
 		return this.c.addCategory(item);

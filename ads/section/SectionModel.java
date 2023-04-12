@@ -16,6 +16,10 @@ public class SectionModel {
 	}
 	
 	
+	protected void finallize() throws Throwable{
+		this.s = null;
+	}
+	
 	//-----------------------------------------------------------
 	public boolean addSection(SectionObject item) {
 		return this.s.addSection(item);

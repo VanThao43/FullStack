@@ -189,6 +189,7 @@ public class ArticleImpl extends CategoryImpl implements Article {
 	public ResultSet getArticle(int id) {
 		String sql = "SELECT * FROM tblarticle ";
 		sql += "LEFT JOIN tblcategory ON article_category_id = category_id ";
+		sql += "LEFT JOIN tblsection ON category_section_id = section_id ";
 		sql += "WHERE article_id = ?";
 		
 		return this.get(sql, id);
@@ -198,6 +199,7 @@ public class ArticleImpl extends CategoryImpl implements Article {
 	public ResultSet getArticles(ArticleObject similar, int at, byte total) {
 //		String sql = "SELECT * FROM tblarticle ";
 //		sql += "LEFT JOIN tblcategory ON article_category_id = category_id ";
+//		sql += "LEFT JOIN tblsection ON category_section_id = section_id ";
 //		sql += "";
 //		sql += "ORDER BY article_title ASC ";
 //		sql += "LIMIT "+at+", "+total;
@@ -208,6 +210,7 @@ public class ArticleImpl extends CategoryImpl implements Article {
 	public ResultSet getArticles(ArticleObject similar, int at, byte total, ARTICLE_ORDER aro, ORDER o) {
 		String sql = "SELECT * FROM tblarticle ";
 		sql += "LEFT JOIN tblcategory ON article_category_id = category_id ";
+		sql += "LEFT JOIN tblsection ON category_section_id = section_id ";
 		sql += "";
 		
 		switch (aro) {
@@ -235,6 +238,7 @@ public class ArticleImpl extends CategoryImpl implements Article {
 	public ResultSet getArticles(ArticleObject similar, int at, byte total, Pair<ARTICLE_ORDER, ORDER> order) {
 		String sql = "SELECT * FROM tblarticle ";
 		sql += "LEFT JOIN tblcategory ON article_category_id = category_id ";
+		sql += "LEFT JOIN tblsection ON category_section_id = section_id ";
 		sql += "";
 		
 		ARTICLE_ORDER aro = order.getValue0();
