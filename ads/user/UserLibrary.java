@@ -27,7 +27,7 @@ public class UserLibrary {
 		tmp += "</thead>\n";
 		tmp += "<tbody>\n";
 		for (UserObject item : items) {
-			
+			tmp += "<tr>";
 			tmp += "<th scope=\"row\">"+item.getUser_id()+"</th>";
 			tmp += "<td>"+item.getUser_name()+"</td>";
 			tmp += "<td>"+item.getUser_fullname()+"</td>";

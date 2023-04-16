@@ -63,6 +63,36 @@ public class ProductModel {
 		return item;
 	}
 	
+	public ArrayList<ProductObject> getProductObjects(ProductObject similar, short page, byte total){
+		ArrayList<ProductObject> items = new ArrayList<ProductObject>();
+		
+		ProductObject item = null;
+		
+		int at = (page-1)*total;
+		ResultSet rs = this.p.getProducts(similar, at, total);
+		
+		
+		if (rs!=null) {
+			try {
+				while(rs.next()) {
+					item = new ProductObject();
+					item.setProduct_id(rs.getShort("product_id"));
+					item.setProduct_name(rs.getString("product_name"));
+					item.setProduct_created_date(rs.getString("product_created_date"));
+					item.setProduct_customer_id(rs.getInt("product_customer_id"));
+					item.setProduct_manager_id(rs.getInt("product_manager_id"));
+					item.setProduct_notes(rs.getString("product_notes"));
+					
+					items.add(item);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return items;
+	}
+	
 	
 	public ArrayList<ProductObject> getProductObjects(ProductObject similar, short page, byte total, PRODUCT_ORDER pro, ORDER o){
 		ArrayList<ProductObject> items = new ArrayList<ProductObject>();

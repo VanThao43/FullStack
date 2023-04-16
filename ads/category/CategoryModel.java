@@ -21,15 +21,15 @@ public class CategoryModel {
 	}
 	
 	//-------------------------------------------------------------
-	public boolean addCategoryObject(CategoryObject item) {
+	public boolean addCategory(CategoryObject item) {
 		return this.c.addCategory(item);
 	}
 	
-	public boolean editCategoryObject(CategoryObject item) {
+	public boolean editCategory(CategoryObject item) {
 		return this.c.editCategory(item);
 	}
 	
-	public boolean delCategoryObject(CategoryObject item) {
+	public boolean delCategory(CategoryObject item) {
 		return this.c.delCategory(item);
 	}
 	//--------------------------------------------------------------
@@ -63,6 +63,41 @@ public class CategoryModel {
 		
 		return item;
 	}
+	
+	
+	public ArrayList<CategoryObject> getCategoryObjects(CategoryObject similar, short page, byte total) {
+		ArrayList<CategoryObject> items = new ArrayList<CategoryObject>();
+
+		CategoryObject item = null;
+		
+		int at = (page-1)*total;
+		ResultSet rs = this.c.getCategories(similar, at, total);
+		
+		if (rs!=null) {
+			try {
+				while (rs.next()) {
+					item = new CategoryObject();
+					item.setCategory_id(rs.getShort("category_id"));
+					item.setCategory_name(rs.getString("category_name"));
+					item.setCategory_language(rs.getByte("category_language"));
+					item.setCategory_manager_id(rs.getInt("category_manager_id"));
+					item.setCategory_notes(rs.getString("category_notes"));
+					item.setCategory_section_id(rs.getShort("category_section_id"));
+					
+					item.setSection_id(rs.getShort("section_id"));
+					item.setSection_name(rs.getString("section_name"));
+					
+					items.add(item);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return items;
+	}
+	
 	
 	public ArrayList<CategoryObject> getCategoryObjects(CategoryObject similar, short page, byte total, CATE_ORDER co, ORDER o) {
 		ArrayList<CategoryObject> items = new ArrayList<CategoryObject>();

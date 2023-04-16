@@ -61,6 +61,38 @@ public class SectionModel {
 		return item;
 	}
 	
+	public ArrayList<SectionObject> getSectionObjects(SectionObject similar, short page, byte total) {
+		ArrayList<SectionObject> items = new ArrayList<SectionObject>();
+		
+		SectionObject item = null;
+		
+		int at = (page-1)*total;
+		
+		ResultSet rs = this.s.getSections(similar, at, total);
+		
+		if (rs!=null) {
+			try {
+				while (rs.next()) {
+					item = new SectionObject();
+					item.setSection_id(rs.getShort("section_id"));
+					item.setSection_name(rs.getString("section_name"));
+					item.setSection_created_author_id(rs.getInt("section_created_author_id"));
+					item.setSection_language(rs.getByte("section_language"));
+					item.setSection_manager_id(rs.getInt("section_manager_id"));
+					item.setSection_created_date(rs.getString("section_created_date"));
+					item.setSection_name_en(rs.getString("section_name_en"));
+					item.setSection_notes(rs.getString("section_notes"));
+					
+					items.add(item);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return items;
+	}
+	
 	public ArrayList<SectionObject> getSectionObjects(SectionObject similar, short page, byte total, SECTION_ORDER so, ORDER o) {
 		ArrayList<SectionObject> items = new ArrayList<SectionObject>();
 		

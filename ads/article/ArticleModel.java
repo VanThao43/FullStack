@@ -23,15 +23,15 @@ public class ArticleModel {
 	
 	
 	//--------------------------------------------------------
-	public boolean addArticleObject(ArticleObject item) {
+	public boolean addArticle(ArticleObject item) {
 		return this.a.addArticle(item);
 	}
 	
-	public boolean editArticleObject(ArticleObject item) {
+	public boolean editArticle(ArticleObject item) {
 		return this.a.editArticle(item);
 	}
 	
-	public boolean delArticleObject(ArticleObject item) {
+	public boolean delArticle(ArticleObject item) {
 		return this.a.delArticle(item);
 	}
 	//--------------------------------------------------------
@@ -71,6 +71,48 @@ public class ArticleModel {
 		
 		return item;
 	}
+	
+	
+	
+	public ArrayList<ArticleObject> getArticleObjects(ArticleObject similar, short page, byte total) {
+		ArrayList<ArticleObject> items = new ArrayList<ArticleObject>();
+		
+		ArticleObject item = null;
+		
+		int at = (page-1)*total;
+		
+		ResultSet rs = this.a.getArticles(similar, at, total);
+		
+		if (rs!=null) {
+			try {
+				while (rs.next()) {
+					item = new ArticleObject();
+					item.setArticle_id(rs.getInt("article_id"));
+					item.setArticle_title(rs.getString("article_title"));
+					item.setArticle_summary(rs.getString("article_summary"));
+					item.setArticle_content(rs.getString("article_content"));
+					item.setArticle_created_date(rs.getString("article_created_date"));
+					item.setArticle_visited(rs.getShort("article_visited"));
+					item.setArticle_author_name(rs.getString("article_author_name"));
+					item.setArticle_section_id(rs.getShort("article_section_id"));
+					item.setArticle_category_id(rs.getShort("article_category_id"));
+					
+					item.setCategory_id(rs.getShort("category_id"));
+					item.setCategory_name(rs.getString("category_name"));
+					
+					item.setSection_id(rs.getShort("section_id"));
+					item.setSection_name(rs.getString("section_name"));
+					
+					items.add(item);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return items;
+	}
+	
 	
 	
 	public ArrayList<ArticleObject> getArticleObjects(ArticleObject similar, short page, byte total, ARTICLE_ORDER aro, ORDER o) {
