@@ -3,7 +3,6 @@ package jsoft.ads.user;
 import jsoft.objects.*;
 import jsoft.*;
 import jsoft.library.ORDER;
-
 import java.sql.*;
 import java.util.*;
 
@@ -13,12 +12,23 @@ public class UserModel {
 	
 	private User u;
 	
+	
 	public UserModel(ConnectionPool cp) {
 		this.u = new UserImpl(cp);
 	}
 	
 	protected void finallize() throws Throwable{
 		this.u = null;
+	}
+	
+	
+	
+	public ConnectionPool getCP() {
+		return this.u.getCP();
+	}
+	
+	public void releaseConnection() {
+		this.u.releaseConnection();
 	}
 	
 	

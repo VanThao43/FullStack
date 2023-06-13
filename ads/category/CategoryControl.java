@@ -2,6 +2,7 @@ package jsoft.ads.category;
 
 import java.util.*;
 import jsoft.*;
+import jsoft.library.*;
 import jsoft.objects.*;
 import org.javatuples.*;
 
@@ -16,6 +17,16 @@ public class CategoryControl {
 	protected void finallize() throws Throwable{
 		this.cm = null;
 	}
+	
+	
+	public ConnectionPool getCP() {
+		return this.cm.getCP();
+	}
+	
+	public void releaseConnection() {
+		this.cm.releaseConnection();
+	}
+	
 
 	
 	// -------------------------------------------------------------
@@ -42,8 +53,8 @@ public class CategoryControl {
 	
 	
 	
-	public Pair<String, String> viewCategories(Triplet<CategoryObject, Short, Byte> infos){
-		ArrayList<CategoryObject> items = this.cm.getCategoryObjects(infos.getValue0(), infos.getValue1(), infos.getValue2());
+	public Pair<String, String> viewCategories(Triplet<CategoryObject, Short, Byte> infos, Pair<CATE_ORDER, ORDER> order){
+		ArrayList<CategoryObject> items = this.cm.getCategoryObjects(infos.getValue0(), infos.getValue1(), infos.getValue2(), order.getValue0(), order.getValue1());
 		
 		return CategoryLibrary.viewCategories(items);
 	}
@@ -54,8 +65,11 @@ public class CategoryControl {
 		CategoryControl c = new CategoryControl(cp);
 		
 		Triplet<CategoryObject, Short, Byte> infos = new Triplet<CategoryObject, Short, Byte>(null, (short)1, (byte)20);
+		Pair<CATE_ORDER, ORDER> order = new Pair<CATE_ORDER, ORDER>(CATE_ORDER.ID, ORDER.ASC);
 		
-		Pair<String, String> view = c.viewCategories(infos);
+		Pair<String, String> view = c.viewCategories(infos, order);
+		
+		c.releaseConnection();
 		
 		System.out.println(view.getValue0());
 	}

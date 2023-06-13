@@ -52,12 +52,12 @@ public class ConnectionPoolImpl implements ConnectionPool {
 		// Xin kết nối để làm việc với CSDL
 		if (this.pool.isEmpty()) {
 			// Khởi tạo kết nối mới
-			System.out.print(objectName + " have created a new Connection.");
+			System.out.println(objectName + " have created a new Connection.");
 			return DriverManager.getConnection(this.url, this.userName, this.userPass);
 		}
 		else {
 			// Lấy kết nối đã tồn tại
-			System.out.print(objectName + " have popped the Connection.");
+			System.out.println(objectName + " have popped the Connection.");
 			return this.pool.pop();
 		}
 		
@@ -67,7 +67,7 @@ public class ConnectionPoolImpl implements ConnectionPool {
 	@Override
 	public void releaseConnection(Connection con, String objectName) throws SQLException {
 		// Yêu cầu trả lại kết nối cho các đối tượng khác dùng
-		System.out.print(objectName + " have pushed the Connection.");
+		System.out.println(objectName + " have pushed the Connection.");
 		this.pool.push(con);
 	}
 	

@@ -22,6 +22,15 @@ public class ArticleModel {
 	}
 	
 	
+	public ConnectionPool getCP() {
+		return this.a.getCP();
+	}
+	
+	public void releaseConnection() {
+		this.a.releaseConnection();
+	}
+	
+	
 	//--------------------------------------------------------
 	public boolean addArticle(ArticleObject item) {
 		return this.a.addArticle(item);

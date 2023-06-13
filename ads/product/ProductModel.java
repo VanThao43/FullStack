@@ -22,6 +22,14 @@ public class ProductModel {
 	}
 	
 	
+	public ConnectionPool getCP() {
+		return this.p.getCP();
+	}
+	
+	public void releaseConnection() {
+		this.p.releaseConnection();
+	}
+	
 	//--------------------------------------------------------------
 	public boolean addProduct(ProductObject item) {
 		return this.p.addProduct(item);

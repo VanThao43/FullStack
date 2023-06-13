@@ -20,6 +20,16 @@ public class SectionModel {
 		this.s = null;
 	}
 	
+	
+	public ConnectionPool getCP() {
+		return this.s.getCP();
+	}
+	
+	public void releaseConnection() {
+		this.s.releaseConnection();
+	}
+	
+	
 	//-----------------------------------------------------------
 	public boolean addSection(SectionObject item) {
 		return this.s.addSection(item);

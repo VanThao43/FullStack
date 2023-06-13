@@ -1,11 +1,12 @@
 package jsoft.ads.category;
 
+import jsoft.ShareControl;
 import jsoft.library.*;
 import jsoft.objects.*;
 import java.sql.*;
 import org.javatuples.*;
 
-public interface Category {
+public interface Category extends ShareControl{
 	public boolean addCategory(CategoryObject item);
 	public boolean editCategory(CategoryObject item);
 	public boolean delCategory(CategoryObject item);

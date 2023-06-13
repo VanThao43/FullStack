@@ -18,7 +18,9 @@ public class ArticleLibrary {
 		tmp += "<th scope=\"col\">#</th>";
 		tmp += "<th scope=\"col\">Tiêu đề</th>";
 		tmp += "<th scope=\"col\">Thể loại</th>";
+		tmp += "<th scope=\"col\">Tên chuyên mục</th>";
 		tmp += "<th scope=\"col\">Ngày khởi tạo</th>";
+		tmp += "<th scope=\"col\">Ngày sửa</th>";
 		tmp += "<th scope=\"col\">Tác giả</th>";
 		tmp += "<th scope=\"col\">Số lượt xem</th>";
 		tmp += "<th scope=\"col\">Tóm tắt</th>";
@@ -30,8 +32,10 @@ public class ArticleLibrary {
 			tmp += "<tr>";
 			tmp += "<th scope=\"row\">"+item.getArticle_id()+"</th>";
 			tmp += "<td>"+item.getArticle_title()+"</td>";
+			tmp += "<td>"+item.getSection_name()+"</td>";
 			tmp += "<td>"+item.getArticle_type()+"</td>";
 			tmp += "<td>"+item.getArticle_created_date()+"</td>";
+			tmp += "<td>"+item.getArticle_last_modified()+"</td>";
 			tmp += "<td>"+item.getArticle_author_name()+"</td>";
 			tmp += "<td>"+item.getArticle_visited()+"</td>";
 			tmp += "<td>"+item.getArticle_summary()+"</td>";

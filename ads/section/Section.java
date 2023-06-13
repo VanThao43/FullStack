@@ -1,11 +1,12 @@
 package jsoft.ads.section;
 
+import jsoft.ShareControl;
 import jsoft.library.*;
 import jsoft.objects.*;
 import java.sql.*;
 import org.javatuples.*;
 
-public interface Section {
+public interface Section extends ShareControl{
 	public boolean addSection(SectionObject item);
 	public boolean editSection(SectionObject item);
 	public boolean delSection(SectionObject item);

@@ -20,6 +20,18 @@ public class CategoryModel {
 		this.c = null;
 	}
 	
+	
+	
+	public ConnectionPool getCP() {
+		return this.c.getCP();
+	}
+	
+	public void releaseConnection() {
+		this.c.releaseConnection();
+	}
+	
+	
+	
 	//-------------------------------------------------------------
 	public boolean addCategory(CategoryObject item) {
 		return this.c.addCategory(item);

@@ -1,11 +1,13 @@
 package jsoft.ads.user;
 
+import jsoft.*;
+import jsoft.ads.basic.*;
 import jsoft.library.*;
 import jsoft.objects.*;
 import java.sql.*;
 import org.javatuples.*;
 
-public interface User {
+public interface User extends ShareControl{
 	// Nhóm các phương thức - chức năng cập nhật cho modun User
 	public boolean addUser(UserObject item);
 	public boolean editUser(UserObject item);

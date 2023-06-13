@@ -1,11 +1,12 @@
 package jsoft.ads.article;
 
+import jsoft.ShareControl;
 import jsoft.library.*;
 import jsoft.objects.*;
 import java.sql.*;
 import org.javatuples.*;
 
-public interface Article {
+public interface Article extends ShareControl{
 	public boolean addArticle(ArticleObject item);
 	public boolean editArticle(ArticleObject item);
 	public boolean delArticle(ArticleObject item);

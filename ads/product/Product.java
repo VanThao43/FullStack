@@ -1,12 +1,13 @@
 package jsoft.ads.product;
 
+import jsoft.ShareControl;
 import jsoft.library.*;
 import jsoft.objects.*;
 import java.sql.*;
 
 import org.javatuples.Pair;
 
-public interface Product {
+public interface Product extends ShareControl{
 	public boolean addProduct(ProductObject item);
 	public boolean editProduct(ProductObject item);
 	public boolean delProduct(ProductObject item);
